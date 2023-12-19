@@ -1,17 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import Quote from "./App";
+import ReactDOM from "react-dom";
+const getRandomQuote = async () => {
+  const response = await fetch("https://api.quotable.io/random");
+  const quote = await response.json();
+  return { content: quote.content, author: quote.author };
+};
+function getRandomRgbColor() {
+  const r = Math.floor(Math.random() * 192);
+  const g = Math.floor(Math.random() * 192);
+  const b = Math.floor(Math.random() * 192);
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  return `rgb(${r}, ${g}, ${b})`;
+}
+
+ReactDOM.render(
+  <Quote generateQuote={getRandomQuote} generateColor={getRandomRgbColor} />,
+  document.getElementById("container")
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
