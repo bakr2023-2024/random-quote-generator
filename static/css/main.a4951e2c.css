@@ -1,0 +1,2 @@
+#quote-box{background-color:#fff;padding:2rem;width:40%}#text{text-align:center}#author{text-align:right}#author:before{content:"- "}button{border:none;color:#fff;padding:.5rem 1rem}#quote-box,button{border-radius:.25rem}.links{display:flex;gap:.5rem}#author,#container #text,button{transition:all .25s ease-in}button:hover{opacity:.7}@media screen and (max-width:768px){#quote-box{width:100%}}
+/*# sourceMappingURL=main.a4951e2c.css.map*/
