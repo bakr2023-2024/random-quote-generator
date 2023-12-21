@@ -1,5 +1,6 @@
 import Quote from "./App";
-import ReactDOM from "react-dom";
+import React from "react";
+import { createRoot } from "react-dom/client";
 const getRandomQuote = async () => {
   const response = await fetch("https://api.quotable.io/random");
   const quote = await response.json();
@@ -13,7 +14,7 @@ function getRandomRgbColor() {
   return `rgb(${r}, ${g}, ${b})`;
 }
 
-ReactDOM.render(
-  <Quote generateQuote={getRandomQuote} generateColor={getRandomRgbColor} />,
-  document.getElementById("container")
+const root = createRoot(document.getElementById("container"));
+root.render(
+  <Quote generateQuote={getRandomQuote} generateColor={getRandomRgbColor} />
 );
